@@ -1,0 +1,1 @@
+export type DataReceivedCallback<T> =  (data:T, source: string) => void;

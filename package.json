@@ -1,0 +1,45 @@
+{
+  "name": "appflags",
+  "version": "2.3.1",
+  "description": "JavaScript SDK for AppFlags.io",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "/lib",
+    "/bundle"
+  ],
+  "scripts": {
+    "clean": "rm -rf bundle lib",
+    "build": "tsc",
+    "bundle": "webpack",
+    "release": "npm run clean && npm run build && npm run bundle",
+    "test": "npx jest",
+    "test-coverage": "npx jest --coverage"
+  },
+  "dependencies": {
+    "@appflags/common": "^1.0.0",
+    "@appflags/protobuf-types-typescript": "2.0.1",
+    "eventemitter3": "^4.0.4",
+    "ua-parser-js": "^1.0.35"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.1",
+    "@semantic-release/gitlab": "^6.2.2",
+    "@types/jest": "^26.0.20",
+    "@types/ua-parser-js": "^0.7.36",
+    "cli-confirm": "^1.0.1",
+    "jest": "^26.6.3",
+    "semantic-release-slack-bot": "^4.0.2",
+    "ts-jest": "^26.2.0",
+    "ts-loader": "^9.4.4",
+    "typescript": "^3.9.6",
+    "webpack": "5.88.2",
+    "webpack-cli": "^5.1.4"
+  },
+  "author": "",
+  "license": "Apache-2.0"
+}
