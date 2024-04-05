@@ -109,4 +109,9 @@ export class AppFlagsClient {
         const unsubscribe = () => this.eventBus.removeListener(flagKey, callback);
         return unsubscribe;
     }
+
+    public updateUser(user: User) {
+        this.user = user
+        this.retrieveConfig()
+    }
 }

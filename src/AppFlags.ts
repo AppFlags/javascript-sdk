@@ -33,3 +33,7 @@ export function onFlagChanged(flagKey: string, callback: FlagChangedCallback): (
     return getClient().onFlagChanged(flagKey, callback)
 }
 
+export function updateUser(user: User) {
+    return getClient().updateUser(user)
+}
+
