@@ -1,6 +1,6 @@
 {
   "name": "appflags",
-  "version": "2.3.3",
+  "version": "2.4.0",
   "description": "JavaScript SDK for AppFlags.io",
   "homepage": "https://github.com/AppFlags/javascript-sdk",
   "main": "lib/index.js",
