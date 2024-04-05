@@ -1,6 +1,7 @@
 import {AppFlagsClient} from "./AppFlagsClient";
-import {Flag, User} from '@appflags/common';
+import {Flag} from '@appflags/common';
 import {InitializationOptions} from "./types/InitializationOptions";
+import {AnonymousUser, AppFlagsUser} from "./types/AppFlagsUser";
 
 export function _setSdk(sdk: string, sdkVersion: string) {
     AppFlagsClient._setSdk(sdk, sdkVersion)
@@ -10,7 +11,7 @@ export type FlagChangedCallback = (flag: Flag) => void
 
 let INSTANCE: AppFlagsClient|null = null
 
-export function initialize(clientKey: string, user: User, options: InitializationOptions = {}) {
+export function initialize(clientKey: string, user: AppFlagsUser = AnonymousUser, options: InitializationOptions = {}) {
     if (INSTANCE) {
         console.warn("AppFlags is already initialized.");
         return;
@@ -33,7 +34,11 @@ export function onFlagChanged(flagKey: string, callback: FlagChangedCallback): (
     return getClient().onFlagChanged(flagKey, callback)
 }
 
-export function updateUser(user: User) {
+export function identifyUser(user: AppFlagsUser) {
     return getClient().updateUser(user)
+}
+
+export function resetUser() {
+    return getClient().updateUser(AnonymousUser)
 }
 

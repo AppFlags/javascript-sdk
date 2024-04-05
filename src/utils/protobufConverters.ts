@@ -1,7 +1,8 @@
-import {Configuration, Flag, User} from "@appflags/common";
+import {Configuration, Flag} from "@appflags/common";
 import {appflags} from "@appflags/protobuf-types-typescript";
+import {AppFlagsUser} from "../types/AppFlagsUser";
 
-export const toUserProto = (user: User): appflags.User => {
+export const toUserProto = (user: AppFlagsUser): appflags.User => {
     const proto = appflags.User.create();
     proto.key = user.key;
     return proto;

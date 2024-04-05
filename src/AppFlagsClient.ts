@@ -1,4 +1,4 @@
-import {Configuration, Flag, User} from "@appflags/common";
+import {Configuration, Flag} from "@appflags/common";
 import {EventEmitter} from "eventemitter3";
 import {InitializationOptions} from "./types/InitializationOptions";
 import {getPlatformData} from "./utils/platformUtil";
@@ -7,6 +7,7 @@ import FlagsUpdateNotifier from "./datasources/FlagsUpdateNotifier";
 import {getOverridesFromUrl} from "./forcers/UrlParamForcer";
 import {FlagChangedCallback} from "./AppFlags";
 import {appflags} from "@appflags/protobuf-types-typescript";
+import {AppFlagsUser} from "./types/AppFlagsUser";
 const pkg = require("../package.json");
 
 export class AppFlagsClient {
@@ -23,7 +24,7 @@ export class AppFlagsClient {
     private readonly platformData: appflags.PlatformData
     private readonly edgeUrl: string
 
-    private user: User
+    private user: AppFlagsUser
     private configuration: Configuration|null = null;
 
     private readonly eventBus = new EventEmitter;
@@ -32,7 +33,7 @@ export class AppFlagsClient {
     // @ts-ignore
     private notifier;
 
-    public constructor(clientKey: string, user: User, options: InitializationOptions = {}) {
+    public constructor(clientKey: string, user: AppFlagsUser, options: InitializationOptions = {}) {
         console.log("Using AppFlags class now2")
 
         this.clientKey = clientKey
@@ -110,7 +111,7 @@ export class AppFlagsClient {
         return unsubscribe;
     }
 
-    public updateUser(user: User) {
+    public updateUser(user: AppFlagsUser) {
         this.user = user
         this.retrieveConfig()
     }

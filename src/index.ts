@@ -1,5 +1,5 @@
 import * as AppFlags from "./AppFlags";
-export {User as AppFlagsUser} from "@appflags/common";
+export {AppFlagsUser, AnonymousUser} from "./types/AppFlagsUser"
 
 export default AppFlags;
 Object.assign(module.exports, AppFlags);
