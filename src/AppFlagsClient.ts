@@ -34,7 +34,6 @@ export class AppFlagsClient {
     private notifier;
 
     public constructor(clientKey: string, user: AppFlagsUser, options: InitializationOptions = {}) {
-        console.log("Using AppFlags class now2")
 
         this.clientKey = clientKey
         this.user = user
